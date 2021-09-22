@@ -1,10 +1,19 @@
+//  as a class needs import react/  react.component has lifecycle methods etc
+// import React from 'react';
+// class App extends React.Component {
+//     render() {
+//         return <h1>class component</h1>;
+//     }
+// }
+
+import Header from './components/Header';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello from react</h1>
-      <h2>hello</h2>
-    </div>
-  );
+    return (
+        <div className="container">
+            <Header />
+        </div>
+    );
 }
 
 export default App;
