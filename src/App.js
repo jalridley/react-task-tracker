@@ -33,6 +33,14 @@ function App() {
         },
     ]);
 
+    // add task
+    const addTask = task => {
+        // must create id since there is no backend to do it automatically
+        const id = Math.floor(Math.random() * 10000) + 1;
+
+        console.log(id);
+    };
+
     // delete task
     const deleteTask = id => {
         // setting state to tasks that are not the chosen id to delete
@@ -52,7 +60,7 @@ function App() {
     return (
         <div className="container">
             <Header />
-            <AddTask />
+            <AddTask onAdd={addTask} />
             {tasks.length > 0 ? (
                 <Tasks
                     tasks={tasks}
