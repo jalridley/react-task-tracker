@@ -37,8 +37,8 @@ function App() {
     const addTask = task => {
         // must create id since there is no backend to do it automatically
         const id = Math.floor(Math.random() * 10000) + 1;
-
-        console.log(id);
+        const newTask = { id, ...task };
+        setTasks([...tasks, newTask]);
     };
 
     // delete task
