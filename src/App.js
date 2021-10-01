@@ -61,7 +61,11 @@ function App() {
 
     return (
         <div className="container">
-            <Header />
+            {/* add button to show add task form */}
+            <Header
+                onAdd={() => setShowAddTask(!showAddTask)}
+                showAdd={showAddTask}
+            />
             {/* short way of doing turnary without and else uses && */}
             {showAddTask && <AddTask onAdd={addTask} />}
             {tasks.length > 0 ? (
