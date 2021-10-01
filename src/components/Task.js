@@ -2,9 +2,12 @@
 // FaTimes is the X icon from font  awesome and it acts like a component <FaTimes />
 import { FaTimes } from 'react-icons/fa';
 
-const task = ({ task, onDelete }) => {
+const task = ({ task, onDelete, onToggle }) => {
     return (
-        <div className="task">
+        <div
+            className={`task ${task.reminder ? 'reminder' : ''}`}
+            onDoubleClick={() => onToggle(task.id)}
+        >
             <h3>
                 {task.text}{' '}
                 <FaTimes

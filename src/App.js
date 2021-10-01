@@ -16,19 +16,19 @@ function App() {
             id: 1,
             text: 'Doctor',
             day: '01.12.2021 at 10am',
-            reminder: 'true',
+            reminder: true,
         },
         {
             id: 2,
             text: 'coffee with babe',
             day: '04.12.2021 at 4pm',
-            reminder: 'true',
+            reminder: true,
         },
         {
             id: 3,
             text: 'flight',
             day: '18.12.2021 at 7am',
-            reminder: 'false',
+            reminder: false,
         },
     ]);
 
@@ -38,11 +38,25 @@ function App() {
         setTasks(tasks.filter(task => task.id !== id));
     };
 
+    // toggle reminder
+    const toggleReminder = id => {
+        setTasks(
+            tasks.map(task =>
+                // set reminder to opposite if it is the chose id
+                task.id === id ? { ...task, reminder: !task.reminder } : task
+            )
+        );
+    };
+
     return (
         <div className="container">
             <Header />
             {tasks.length > 0 ? (
-                <Tasks tasks={tasks} onDelete={deleteTask} />
+                <Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                />
             ) : (
                 'No tasks to show'
             )}
